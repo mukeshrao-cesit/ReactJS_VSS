@@ -1,10 +1,10 @@
-import ClassCompwithState from "./ClassCompwithState";
+import ClassComp from "./ClassComp";
 import { FunctionalComp } from "./FunctionalComp";
 
 function App() {
   return (
     <div>
-      <ClassCompwithState />
+      <ClassComp />
       {/* <FunctionalComp /> */}
     </div>
   );
