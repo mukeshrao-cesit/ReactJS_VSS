@@ -1,14 +1,13 @@
 import { Component } from "react";
 
 class ClassCompwithState extends Component {
-  state = {
+  obj = {
     name: "",
     password: "",
     date: "",
   };
   handleInputChange = (e) => {
     const { value, name } = e.target;
-    console.log(e.target);
     if (!name) {
       return;
     }
@@ -18,7 +17,7 @@ class ClassCompwithState extends Component {
     });
   };
   render() {
-    const { name, password, date } = this.state;
+    const { name, password, date } = this.obj;
     return (
       <div>
         <label>Name</label>
@@ -45,9 +44,9 @@ class ClassCompwithState extends Component {
 
         <br></br>
 
-        <p>Name : {this.state.name}</p>
-        <p>Password : {this.state.password}</p>
-        <p>Date : {this.state.date}</p>
+        <p>Name : {this.obj.name}</p>
+        <p>Password : {this.obj.password}</p>
+        <p>Date : {this.obj.date}</p>
       </div>
     );
   }

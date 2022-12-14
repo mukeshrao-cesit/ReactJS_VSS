@@ -4,8 +4,8 @@ import { FunctionalComp } from "./FunctionalComp";
 function App() {
   return (
     <div>
-      {/* <ClassCompwithState /> */}
-      <FunctionalComp />
+      <ClassCompwithState />
+      {/* <FunctionalComp /> */}
     </div>
   );
 }
