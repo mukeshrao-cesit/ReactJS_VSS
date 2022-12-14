@@ -1,15 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { MultiStateChange } from "./FunctionComponents/MultiStateChange";
 
 export const FunctionalComp = () => {
-  const [count, setCount] = useState(0);
-  function handleIncrement() {
-    setCount(count + 1);
-  }
   return (
     <div>
-      <button onClick={handleIncrement}>Click</button>
-      <p>Count : {count}</p>
+      <MultiStateChange />
     </div>
   );
 };
