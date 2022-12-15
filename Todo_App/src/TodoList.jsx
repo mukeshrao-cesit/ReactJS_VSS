@@ -1,12 +1,18 @@
 import React from "react";
 import { Todo } from "./Todo";
+import "./TodoList.css";
 
-export const TodoList = ({ todoList }) => {
+export const TodoList = ({ todoList, handleTodoFilter, handleTodoUpdate }) => {
   return (
-    <div>
+    <div className="TodoListContainer">
       <ul>
-        {todoList.map((task, index) => (
-          <Todo key={index} todo={task} />
+        {todoList.map((task) => (
+          <Todo
+            key={task.id}
+            todo={task}
+            handleTodoFilter={handleTodoFilter}
+            handleTodoUpdate={handleTodoUpdate}
+          />
         ))}
       </ul>
     </div>
