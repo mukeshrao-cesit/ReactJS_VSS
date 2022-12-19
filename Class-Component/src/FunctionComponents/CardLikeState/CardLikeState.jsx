@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import ClassCompProps from "../../ClassComponents/ClassCompProps";
 import { CardItem } from "./CardItem";
+import "./Card.css";
 export const CardLikeState = () => {
   const [profileDatas, setProfileDatas] = useState([
     {
@@ -257,7 +258,7 @@ export const CardLikeState = () => {
     });
   }
   return (
-    <div>
+    <div className="card-container">
       {profileDatas.map((elem) => {
         return (
           <CardItem key={elem.id} handleLikeFunc={handleLikeFunc} data={elem} />
