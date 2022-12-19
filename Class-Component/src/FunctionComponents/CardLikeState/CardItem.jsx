@@ -1,15 +1,15 @@
 import React from "react";
 import "./Card.css";
-export const CardItem = ({ data, handleLikeFunc }) => {
+export const CardItem = ({ isLiked, data, handleLikeFunc }) => {
   const isLikedCSS = {
     color: "white",
     backgroundColor: "red",
   };
   return (
     <div
-      style={data.isAlreadyLiked === true ? isLikedCSS : null}
+      style={isLiked ? isLikedCSS : null}
       className="card-item"
-      onClick={(e) => handleLikeFunc(data.id, data.isAlreadyLiked)}
+      onClick={(e) => handleLikeFunc(data.id, isLiked)}
     >
       <p className="profileName">{data.name}</p>
     </div>
