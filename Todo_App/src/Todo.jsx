@@ -1,37 +1,46 @@
 import React from "react";
 import { useState } from "react";
+import { InputBox } from "./InputBox";
 import "./TodoList.css";
+import { UpdateTodo } from "./UpdateTodo";
 
-export const Todo = ({ todo, handleTodoFilter, handleTodoUpdate }) => {
-  const [todoUpdateInput, setTodoUpdateInput] = useState(false);
+export const Todo = ({
+  setTodoID,
+  todoID,
+  todo,
+  handleTodoUpdate,
+  handleTodoFilter,
+}) => {
   const [todoInput, setTodoInput] = useState(todo.task);
   function handleTodoInput() {
-    setTodoUpdateInput(!todoUpdateInput);
-    if (todoUpdateInput) {
-      handleTodoUpdate(todo.id, todoInput);
-    }
+    setTodoID(todo.id);
+  }
+  function handleTodoUpdateFunc() {
+    handleTodoUpdate(todo.id, todoInput);
   }
   return (
     <div className="TodoTaskContainer">
-      {todoUpdateInput ? (
-        <input
-          className="updateInput"
-          type={"text"}
-          value={todoInput}
-          placeholder="Enter the update input"
-          onChange={(e) => setTodoInput(e.target.value)}
-        />
+      {todo.id === todoID ? (
+        <>
+          <UpdateTodo
+            inputName={todoInput}
+            setInputName={setTodoInput}
+            handleTodoUpdateFunc={handleTodoUpdateFunc}
+          />
+        </>
       ) : (
-        <h5>{todo.task}</h5>
+        <>
+          <h5>{todo.task}</h5>
+          <button
+            onClick={(e) => {
+              handleTodoFilter(todo.id);
+            }}
+          >
+            Delete
+          </button>
+          <button onClick={handleTodoInput}>Update</button>
+        </>
       )}
-      <button
-        onClick={(e) => {
-          handleTodoFilter(todo.id);
-        }}
-      >
-        Delete
-      </button>
-      <button onClick={handleTodoInput}>Update</button>
     </div>
   );
 };

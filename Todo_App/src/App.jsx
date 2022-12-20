@@ -2,9 +2,12 @@ import { useState } from "react";
 import "./App.css";
 import { TodoList } from "./TodoList";
 import { v4 as uuidv4 } from "uuid";
+import { InputBox } from "./InputBox";
 
 function App() {
   const [todoInput, setTodoInput] = useState("");
+
+  const [todoID, setTodoID] = useState(null);
   const [todoList, setTodoList] = useState([]);
   function handleTodoFilter(id) {
     setTodoList(todoList.filter((elem) => elem.id != id));
@@ -31,17 +34,13 @@ function App() {
         })
       );
     }
+    setTodoID(null);
   }
   return (
     <div className="container">
       <h1>Todo App</h1>
       <div className="todoInputField">
-        <input
-          type={"text"}
-          value={todoInput}
-          placeholder="Enter your task"
-          onChange={(e) => setTodoInput(e.target.value)}
-        />
+        <InputBox inputName={todoInput} setInputName={setTodoInput} />
         <div className="todoInputButton">
           <button onClick={handleTodoAdd}>Add Todo</button>
         </div>
@@ -49,8 +48,10 @@ function App() {
       <div>
         <TodoList
           todoList={todoList}
-          handleTodoFilter={handleTodoFilter}
+          todoID={todoID}
+          setTodoID={setTodoID}
           handleTodoUpdate={handleTodoUpdate}
+          handleTodoFilter={handleTodoFilter}
         />
       </div>
     </div>

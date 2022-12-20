@@ -2,7 +2,13 @@ import React from "react";
 import { Todo } from "./Todo";
 import "./TodoList.css";
 
-export const TodoList = ({ todoList, handleTodoFilter, handleTodoUpdate }) => {
+export const TodoList = ({
+  todoID,
+  setTodoID,
+  todoList,
+  handleTodoUpdate,
+  handleTodoFilter,
+}) => {
   return (
     <div className="TodoListContainer">
       <ul>
@@ -10,8 +16,10 @@ export const TodoList = ({ todoList, handleTodoFilter, handleTodoUpdate }) => {
           <Todo
             key={task.id}
             todo={task}
-            handleTodoFilter={handleTodoFilter}
+            todoID={todoID}
+            setTodoID={setTodoID}
             handleTodoUpdate={handleTodoUpdate}
+            handleTodoFilter={handleTodoFilter}
           />
         ))}
       </ul>
