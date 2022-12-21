@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { InputBox } from "./InputBox";
 import "./TodoList.css";
 import { UpdateTodo } from "./UpdateTodo";
 
