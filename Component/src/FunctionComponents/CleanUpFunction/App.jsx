@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CleanUpV2 from "./CleanUpV2";
 import { Home } from "./Home";
 
 const App = () => {
@@ -9,7 +10,10 @@ const App = () => {
       <button onClick={() => setToggleView((state) => !state)}>
         {toggleView ? "Hide" : "Show"} Component
       </button>
-      {toggleView && <Home />}
+      {toggleView && (
+        //  <Home />
+        <CleanUpV2 />
+      )}
     </>
   );
 };
