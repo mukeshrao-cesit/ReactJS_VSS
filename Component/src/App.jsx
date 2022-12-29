@@ -1,5 +1,6 @@
 import ClassComp from "./ClassComp";
 import { FunctionalComp } from "./FunctionalComp";
+import { ParentListMemo } from "./FunctionComponents/FilterListUsingMemo/ParentListMemo";
 import { ParentMemo } from "./FunctionComponents/Memo/ParentMemo";
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
     <div>
       {/* <ClassComp />
       <FunctionalComp /> */}
-      <ParentMemo />
+      {/* <ParentMemo /> */}
+      <ParentListMemo />
     </div>
   );
 }
