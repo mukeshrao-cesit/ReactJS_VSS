@@ -78,7 +78,3 @@ export const Parent = () => {
     </div>
   );
 };
-
-{
-  /*  */
-}
