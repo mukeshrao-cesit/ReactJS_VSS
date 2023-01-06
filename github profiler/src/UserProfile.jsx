@@ -14,26 +14,17 @@ export const UserProfile = () => {
   const [following, setFollowing] = useState(0);
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${username}/repos`, {
-      headers: {
-        Authorization:
-          "Bearer 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",
-      },
-    })
+    fetch(`https://api.github.com/users/${username}/repos`)
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         setRepos(res);
         dispatch(initaite(res));
       })
       .catch((err) => {
         console.log(err);
       });
-    fetch(`https://api.github.com/users/${username}/followers`, {
-      headers: {
-        Authorization:
-          "Bearer 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",
-      },
-    })
+    fetch(`https://api.github.com/users/${username}/followers`)
       .then((res) => res.json())
       .then((res) => {
         setFollowers(res.length);
@@ -41,12 +32,7 @@ export const UserProfile = () => {
       .catch((err) => {
         console.log(err);
       });
-    fetch(`https://api.github.com/users/${username}/following`, {
-      headers: {
-        Authorization:
-          "Bearer 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",
-      },
-    })
+    fetch(`https://api.github.com/users/${username}/following`)
       .then((res) => res.json())
       .then((res) => {
         setFollowing(res.length);

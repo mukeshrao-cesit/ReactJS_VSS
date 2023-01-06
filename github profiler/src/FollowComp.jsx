@@ -16,12 +16,7 @@ export const FollowComp = () => {
   const { username, type } = useParams();
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${username}/${type}`, {
-      headers: {
-        Authorization:
-          "Bearer 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",
-      },
-    })
+    fetch(`https://api.github.com/users/${username}/${type}`)
       .then((res) => res.json())
       .then((res) => {
         setFollowData(res);
