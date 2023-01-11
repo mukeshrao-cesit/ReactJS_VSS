@@ -21,8 +21,9 @@ export const Home = () => {
       <div className="textArea">
         <TextField
           value={search}
+          type="search"
           onChange={(e) => setSearch(e.target.value)}
-          id="outlined-basic"
+          id="outlined-search"
           label="Enter UserName"
           variant="outlined"
           placeholder="Enter your Github Name"

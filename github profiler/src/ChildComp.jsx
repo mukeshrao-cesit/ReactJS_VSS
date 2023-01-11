@@ -1,6 +1,7 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const ChildComp = ({ repoData }) => {
   const navigate = useNavigate();
@@ -8,12 +9,20 @@ export const ChildComp = ({ repoData }) => {
     navigate(`/repos/${repoData.owner.login}/${repoData.name}`);
   }
   return (
-    <div className="card" onClick={handleNavigate}>
-      <h2 className="name">{repoData.name}</h2>
-      <div className="title">{repoData.owner.login}</div>
-      <div className="visibility">
-        <p>{repoData.visibility}</p>
-      </div>
-    </div>
+    <>
+      {repoData ? (
+        <div className="card" onClick={handleNavigate}>
+          <h2 className="name">{repoData.name}</h2>
+          <div className="title">{repoData.owner.login}</div>
+          <div className="visibility">
+            <p>{repoData.visibility}</p>
+          </div>
+        </div>
+      ) : (
+        <div className="loader">
+          <CircularProgress color="inherit" sx={{ color: "white" }} />
+        </div>
+      )}
+    </>
   );
 };

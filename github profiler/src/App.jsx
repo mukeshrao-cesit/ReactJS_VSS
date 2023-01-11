@@ -10,7 +10,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/users/:username/repos" element={<UserProfile />} />
+          <Route
+            path="/users/:username/repos"
+            caseSensitive={true}
+            // loader={()=>{}}
+            element={<UserProfile />}
+          />
           <Route path="/repos/:username/:reponame" element={<Content />} />
           <Route path="/users/:username/:type" element={<FollowComp />} />
         </Routes>

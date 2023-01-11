@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ChildComp } from "./ChildComp";
 import Button from "@mui/material/Button";
 import { initaite } from "./redux/slice";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const UserProfile = () => {
   const navigate = useNavigate();
@@ -14,17 +15,26 @@ export const UserProfile = () => {
   const [following, setFollowing] = useState(0);
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${username}/repos`)
+    fetch(`https://api.github.com/users/${username}/repos`, {
+      headers: {
+        Authorization:
+          "Bearer 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",
+      },
+    })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         setRepos(res);
         dispatch(initaite(res));
       })
       .catch((err) => {
         console.log(err);
       });
-    fetch(`https://api.github.com/users/${username}/followers`)
+    fetch(`https://api.github.com/users/${username}/followers`, {
+      headers: {
+        Authorization:
+          "Bearer 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",
+      },
+    })
       .then((res) => res.json())
       .then((res) => {
         setFollowers(res.length);
@@ -32,7 +42,12 @@ export const UserProfile = () => {
       .catch((err) => {
         console.log(err);
       });
-    fetch(`https://api.github.com/users/${username}/following`)
+    fetch(`https://api.github.com/users/${username}/following`, {
+      headers: {
+        Authorization:
+          "Bearer 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",
+      },
+    })
       .then((res) => res.json())
       .then((res) => {
         setFollowing(res.length);
@@ -69,7 +84,7 @@ export const UserProfile = () => {
         </svg>
       </div>
       <div className="user-info">
-        {repos.length > 0 && (
+        {repos.length > 0 ? (
           <>
             <div className="banner">
               <img src={repos[0].owner.avatar_url} alt="avatar" />
@@ -90,6 +105,10 @@ export const UserProfile = () => {
               </div>
             </div>
           </>
+        ) : (
+          <div className="loader">
+            <CircularProgress color="inherit" sx={{ color: "white" }} />
+          </div>
         )}
       </div>
       <div className="repo-container">
@@ -97,7 +116,7 @@ export const UserProfile = () => {
           return <ChildComp key={elem.id} repoData={elem} />;
         })}
       </div>
-      <div className="gobackbutton">
+      <div className="gobackbutton back-btn">
         <Button id="submit-button" onClick={goBack} variant="contained">
           Go Back
         </Button>
