@@ -4,6 +4,7 @@ import { Parent } from "./FunctionComponents/DynamicForm/Parent";
 import { ParentListMemo } from "./FunctionComponents/FilterListUsingMemo/ParentListMemo";
 import { ParentMemo } from "./FunctionComponents/Memo/ParentMemo";
 import ParentUseCallBack from "./FunctionComponents/UseCallBack/ParentUseCallBack";
+import UseTransition from "./FunctionComponents/UseTransition/UseTransition";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       {/* <ParentMemo /> */}
       {/* <ParentListMemo /> */}
       {/* <ParentUseCallBack /> */}
-      <Parent />
+      {/* <Parent /> */}
+      <UseTransition />
     </div>
   );
 }

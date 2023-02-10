@@ -2,7 +2,6 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useDispatch } from "react-redux";
@@ -15,17 +14,33 @@ export default function MediaCard({ data, isInCart }) {
     dispatch(AddProductToCart(data));
   }
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia sx={{ height: 240 }} image={data.image} title={data.title} />
-      <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
+    <Card sx={{ maxWidth: 345, height: 330 }}>
+      <div style={{ display: "flex", justifyContent: "center", margin: "5px" }}>
+        <img
+          src={data.image}
+          style={{ width: "160px", height: "200px" }}
+          alt="productImage"
+        />
+      </div>
+      <CardContent sx={{ width: "160px" }}>
+        <Typography
+          gutterBottom
+          variant="h6"
+          sx={{
+            width: "160px",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+          component="div"
+        >
           {data.title}
         </Typography>
       </CardContent>
       <CardActions>
         {isInCart ? (
           <Button variant="contained" disabled>
-            Already Added To Cart
+            Added To Cart
           </Button>
         ) : (
           <Button size="small" onClick={handleAddToCart}>

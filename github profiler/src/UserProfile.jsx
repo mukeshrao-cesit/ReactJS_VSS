@@ -18,7 +18,7 @@ export const UserProfile = () => {
     fetch(`https://api.github.com/users/${username}/repos`, {
       headers: {
         Authorization:
-          "Bearer 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",
+          "Bearer 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",
       },
     })
       .then((res) => res.json())
@@ -32,7 +32,7 @@ export const UserProfile = () => {
     fetch(`https://api.github.com/users/${username}/followers`, {
       headers: {
         Authorization:
-          "Bearer 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",
+          "Bearer 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",
       },
     })
       .then((res) => res.json())
@@ -45,7 +45,7 @@ export const UserProfile = () => {
     fetch(`https://api.github.com/users/${username}/following`, {
       headers: {
         Authorization:
-          "Bearer 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",
+          "Bearer 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",
       },
     })
       .then((res) => res.json())
@@ -57,7 +57,7 @@ export const UserProfile = () => {
       });
   }, [username]);
   function handleGoToMain() {
-    navigate("/");
+    navigate("/githubprofiler");
   }
   function handleFollow(type) {
     navigate(`/users/${username}/${type}`);

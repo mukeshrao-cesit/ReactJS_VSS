@@ -31,6 +31,19 @@ body {
   font-family: Montserrat;
   justify-content: center;
 }
+.avatar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.signUp-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 .textArea {
   width: 100%;

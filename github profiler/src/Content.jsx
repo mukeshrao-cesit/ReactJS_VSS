@@ -12,7 +12,7 @@ const Content = () => {
     fetch(`https://api.github.com/repos/${username}/${reponame}`, {
       headers: {
         Authorization:
-          "Bearer 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",
+          "Bearer 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",
       },
     })
       .then((res) => res.json())
